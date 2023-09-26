@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/our-team', [HomeController::class, 'teams'])->name('teams');
+Route::get('/products', [HomeController::class, 'allProducts'])->name('products');
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
