@@ -9160,7 +9160,11 @@ button.bg-dark:focus {
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: break-spaces;
+  line-height: 1.4;
+  min-height: 50px;
+  display: block;
+
 }
 
 .text-left {
@@ -9999,6 +10003,12 @@ p.service_text{
     display: inline-block;
     line-height: 96px;
     border-radius: 50px;
+}
+.item .icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 .item p{
     font-size:15px;

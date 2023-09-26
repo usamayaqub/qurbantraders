@@ -37,6 +37,18 @@ class HomeController extends Controller
     {
         return view('products.index');
     }
-    
+    public function productsDetail()
+    {
+        return view('products.detail');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
+    public function productSearch()
+    {
+        return view('search-result');
+    }  
+      
     
 }

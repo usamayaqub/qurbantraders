@@ -1,11 +1,10 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+<div class="container-fluid text-secondary mt-5 pt-5" style="background-color:#000;">
     <div class="row px-xl-5 pt-5">
         <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
             <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
             <p class="mb-4">
-                No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
-                dolor. Rebum tempor no vero est magna amet no
+                We deal in Imported and Stockit, M.S, S.S, Pipe Fitting, Valve Fire Fighting, LPG Plant Fitting, Grooved Fitting All
             </p>
             <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>99-Railway Road, Near GCT
                 College Lahore</p>
@@ -17,16 +16,11 @@
                 <div class="col-md-4 mb-5">
                     <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our
-                            Shop</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop
-                            Detail</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping
-                            Cart</a>
-                        <a class="text-secondary mb-2" href="#"><i
-                                class="fa fa-angle-right mr-2"></i>Checkout</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-secondary mb-2" href="{{route('get-home')}}"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-secondary mb-2" href="{{route('products')}}"><i class="fa fa-angle-right mr-2"></i>Our Products</a>
+                        <a class="text-secondary mb-2" href="{{route('about')}}"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                        <a class="text-secondary mb-2" href="{{route('teams')}}"><i class="fa fa-angle-right mr-2"></i>Our Teams</a>
+                        <a class="text-secondary" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">

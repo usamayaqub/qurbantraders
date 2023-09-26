@@ -15,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[HomeController::class, 'index'])->name('get-home');
 
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/our-team', [HomeController::class, 'teams'])->name('teams');
 Route::get('/products', [HomeController::class, 'allProducts'])->name('products');
+Route::get('/products/products-detail', [HomeController::class, 'productsDetail'])->name('products-detail');
+Route::get('/search', [HomeController::class, 'productSearch'])->name('search');
+
+Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
+
 
 
 
