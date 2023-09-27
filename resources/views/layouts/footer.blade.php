@@ -14,17 +14,18 @@
         <div class="col-lg-8 col-md-12">
             <div class="row">
                 <div class="col-md-4 mb-5">
-                    <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
+                    <h5 class="text-secondary text-uppercase mb-4">Quick Links</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-secondary mb-2" href="{{route('get-home')}}"><i class="fa fa-angle-right mr-2"></i>Home</a>
                         <a class="text-secondary mb-2" href="{{route('products')}}"><i class="fa fa-angle-right mr-2"></i>Our Products</a>
                         <a class="text-secondary mb-2" href="{{route('about')}}"><i class="fa fa-angle-right mr-2"></i>About Us</a>
                         <a class="text-secondary mb-2" href="{{route('teams')}}"><i class="fa fa-angle-right mr-2"></i>Our Teams</a>
-                        <a class="text-secondary" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-secondary mb-2" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-secondary" href="{{route('get-privacy')}}"><i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <h5 class="text-secondary text-uppercase mb-4">My Account</h5>
+                    <h5 class="text-secondary text-uppercase mb-4">Products </h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
                         <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our

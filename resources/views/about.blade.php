@@ -38,24 +38,19 @@
                 <div class="inner-column">
                     <div class="sec-title">
                         <div class="title">About Us</div>
-                        <h2>We Are The Leader In <br> The Interiores</h2>
+                        <h2>Welcome to Qurban Trader<br> – Your Trusted Partner in Quality Pipe Fitting Solutions!</h2>
                     </div>
-                    <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type specimen book. It has survived not only
-                        five centuries</div>
-                    <div class="email">Request Quote: <span class="theme_color">freequote@gmail.com</span></div>
-                    <a href="about.html" class="theme-btn btn-style-three">Read More</a>
+                    <div class="text">
+                        At Qurban Trader, we take pride in our commitment to providing top-notch pipe fitting solutions to meet your industrial needs. With a rich history and an unwavering dedication to excellence, we have become a leading name in the industry.
+                    </div>
+                    <a href="{{route('contact')}}" class="theme-btn btn-style-three">Contact Us</a>
                 </div>
             </div>
             <!--Image Column-->
             <div class="image-column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-column " data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image">
-                        <img src="https://i.ibb.co/vQbkKj7/about.jpg" alt="">
-                        <div class="overlay-box">
-                            <div class="year-box"><span class="number">5</span>Years <br> Experience <br> Working</div>
-                        </div>
+                        <img src="{{asset('img/reading-instruction.webp')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -125,51 +120,47 @@
         <div class="row">
             <div class="section-head col-sm-12">
                 <h4><span>Why Choose</span> Us?</h4>
-                <p>When you choose us, you'll feel the benefit of 10 years' experience of Web Development. Because we
-                    know the digital world and we know that how to handle it. With working knowledge of online, SEO and
-                    social media.</p>
+                <p>
+                    At Qurban Trader, we offer a comprehensive range of products and services to cater to a wide spectrum of requirements:
+                </p>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> 
                     <span class="icon feature_box_col_one bg-primary">
                         <i class="fa fa-globe"></i>
                     </span>
-                    <h6>Modern Design</h6>
-                    <p>We use latest technology for the latest world because we know the demand of peoples.</p>
+                    <h6>Quality Assurance   </h6>
+                    <p>We are committed to delivering products that meet stringent quality standards, ensuring your projects are built to last.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> <span class="icon feature_box_col_two bg-primary"><i class="fa fa-anchor"></i></span>
-                    <h6>Creative Design</h6>
-                    <p>We are always creative and and always lisen our costomers and we mix these two things and make
-                        beast design.</p>
+                    <h6>Customer-Centric Approach</h6>
+                    <p>Our dedicated team is always ready to assist you in finding the right solutions for your specific needs.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> <span class="icon feature_box_col_three bg-primary"><i class="fa fa-hourglass-half"></i></span>
-                    <h6>24 x 7 User Support</h6>
-                    <p>If our customer has any problem and any query we are always happy to help then.</p>
+                    <h6>Competitive Pricing</h6>
+                    <p>We offer competitive prices without compromising on product quality, helping you stay within budget.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> <span class="icon feature_box_col_four bg-primary"><i class="fa fa-database"></i></span>
-                    <h6>Business Growth</h6>
-                    <p>Everyone wants to live on top of the mountain, but all the happiness and growth occurs while
-                        you're climbing it</p>
+                    <h6>Timely Delivery</h6>
+                    <p>We understand the importance of timely project completion. We strive to deliver your orders promptly, minimizing downtime</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> <span class="icon feature_box_col_five bg-primary"><i class="fa fa-upload"></i></span>
-                    <h6>Market Strategy</h6>
-                    <p>Holding back technology to preserve broken business models is like allowing blacksmiths to veto
-                        the internal combustion engine in order to protect their horseshoes.</p>
+                    <h6>Customization and Flexibility</h6>
+                    <p>we understand that each project is unique, and one size doesn't fit all. We offer customization options to tailor our products and services to your specific requirements</p>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> <span class="icon feature_box_col_six bg-primary"><i class="fa fa-camera"></i></span>
-                    <h6>Affordable cost</h6>
-                    <p>Love is a special word, and I use it only when I mean it. You say the word too much and it
-                        becomes cheap.</p>
+                    <h6>Technical Expertise and Support</h6>
+                    <p>Our team comprises experts with in-depth technical knowledge and industry experience. We provide not only products but also valuable guidance and technical support.</p>
                 </div>
             </div>
         </div>

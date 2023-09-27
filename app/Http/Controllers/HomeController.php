@@ -48,7 +48,12 @@ class HomeController extends Controller
     public function productSearch()
     {
         return view('search-result');
+    }
+    public function privacyPolicy()
+    {
+        return view('privacy-policy');
     }  
+    
       
     
 }

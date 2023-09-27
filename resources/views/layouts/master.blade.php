@@ -62,6 +62,10 @@
     @include('layouts.footer')
     @yield('footer_scripts')
     @stack('scripts')
+ 
+    <a href="https://wa.link/ppwma3" class="float" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
 
 
     <!-- JavaScript Libraries -->
@@ -76,4 +80,4 @@
 
 </body>
 
-</html>
+</html> 

@@ -22,6 +22,9 @@ Route::get('/our-team', [HomeController::class, 'teams'])->name('teams');
 Route::get('/products', [HomeController::class, 'allProducts'])->name('products');
 Route::get('/products/products-detail', [HomeController::class, 'productsDetail'])->name('products-detail');
 Route::get('/search', [HomeController::class, 'productSearch'])->name('search');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('get-privacy');
+
+
 
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 
