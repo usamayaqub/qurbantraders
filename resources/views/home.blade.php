@@ -9,6 +9,18 @@
 <meta property="og:image" content="" />
 <meta name="twitter:image" content="" />
 @section('content')
+
+<!-- ================ ANIMATION ON LOAD ============= -->
+<div id="overlay1">
+    <div id="status">
+        <div id="status-overlay"></div>
+    </div>
+</div>
+<div id="overlay2">
+    <div id="status">
+        <div id="status-overlay"></div>
+    </div>
+</div>
 <!-- Carousel Start -->
 <div class="container-fluid mb-3">
     <div class="row px-0">
@@ -371,6 +383,7 @@
 </div>
 <!-- Products End -->
 
+@include('comman.why-choose-us')
 
 <!-- Vendor Start -->
 <div class="container-fluid py-5">

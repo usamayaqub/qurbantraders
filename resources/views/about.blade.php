@@ -38,7 +38,7 @@
                 <div class="inner-column">
                     <div class="sec-title">
                         <div class="title">About Us</div>
-                        <h2>Welcome to Qurban Trader<br> – Your Trusted Partner in Quality Pipe Fitting Solutions!</h2>
+                        <h2>Welcome to Qurban Trader<br> Your Trusted Partner in Quality Pipe Fitting Solutions!</h2>
                     </div>
                     <div class="text">
                         At Qurban Trader, we take pride in our commitment to providing top-notch pipe fitting solutions to meet your industrial needs. With a rich history and an unwavering dedication to excellence, we have become a leading name in the industry.
@@ -166,4 +166,5 @@
         </div>
     </div>
 </div>
+@include('comman.why-choose-us')
 @endsection
