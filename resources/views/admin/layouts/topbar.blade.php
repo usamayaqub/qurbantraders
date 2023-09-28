@@ -45,7 +45,7 @@
                     </li>
 
                     <li class="nav-item dropdown d-flex align-items-center">
-                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="#" id="topnav-components" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="{{route('admin.categories')}}" id="topnav-components" role="button">
                             <i class="bx bx-cart me-2"></i><span key="t-components">Categories</span>
                         </a>
 

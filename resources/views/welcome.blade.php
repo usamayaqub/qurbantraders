@@ -470,7 +470,7 @@
             @if (Route::has('login'))
             <div class="  top-0 right-0 px-4 py-4 sm:block" style="margin-top: 10rem;">
                 @auth
-                <a href="{{ url('/home') }}" style="color: #8fc5a3; text-decoration: none" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                <a href="{{ url('/admin/home') }}" style="color: #8fc5a3; text-decoration: none" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                 @else
                 <a href="{{ route('login') }}" style="color: #8fc5a3; text-decoration: none" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 

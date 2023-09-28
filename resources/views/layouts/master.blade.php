@@ -1,3 +1,10 @@
+<?php
+use App\Models\Category;
+$categories = Category::where('status',1)->get();
+if(empty($categories)){
+$categories = [];
+}
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 

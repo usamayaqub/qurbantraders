@@ -42,6 +42,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('home', [AdminController::class, 'index'])->name('admin.home');
+    
+    // Categories Routes For Admin
+    Route::get('all-categories', [AdminController::class, 'allCategories'])->name('admin.categories');
+    Route::get('add-category', [AdminController::class, 'addCategory'])->name('add.category');
+    Route::post('add-category', [AdminController::class, 'storeCategory'])->name('insert.category');
+    Route::get('edit-category/{id}', [AdminController::class, 'editCategory'])->name('edit.category');
+    Route::post('update-category/{id}', [AdminController::class, 'updateCategory'])->name('update.category');
+    // Categories Routes For Admin
+
 
 });
 
