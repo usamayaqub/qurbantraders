@@ -39,10 +39,10 @@
                         <div
                             class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                                <h1 class="display-4 text-white mb-3 animate_animated animate_fadeInDown">
                                     Fire Fighting Valves 
                                 </h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                <p class="mx-md-5 px-5 animate_animated animate_bounceIn">
                                     Critical lifesaving components ensuring swift control of fires, valves for firefighting deliver safety, reliability, and precision in emergency situations
                                 </p>
                             </div>
@@ -54,10 +54,10 @@
                         <div
                             class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                                <h1 class="display-4 text-white mb-3 animate_animated animate_fadeInDown">
                                     Pipe Line Fitting
                                 </h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                <p class="mx-md-5 px-5 animate_animated animate_bounceIn">
                                     The connecting components for main runs of pipe that the customer is transferring liquids or gases through. These include expansion bellows, sight glasses, valves, equal tee & elbows
                                 </p>
                             </div>
@@ -69,8 +69,8 @@
                         <div
                             class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">LPG Plant Fittings</h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                <h1 class="display-4 text-white mb-3 animate_animated animate_fadeInDown">LPG Plant Fittings</h1>
+                                <p class="mx-md-5 px-5 animate_animated animate_bounceIn">
                                     Precision-engineered valves for safe and efficient gas control, essential for the integrity and security of LPG facilities
                                 </p>
                             </div>
@@ -82,10 +82,10 @@
                         <div
                             class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div class="p-3" style="max-width: 700px;">
-                                <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                                <h1 class="display-4 text-white mb-3 animate_animated animate_fadeInDown">
                                     M.S. & S.S. Pipe Fittings
                                 </h1>
-                                <p class="mx-md-5 px-5 animate__animated animate__bounceIn">
+                                <p class="mx-md-5 px-5 animate_animated animate_bounceIn">
                                     Versatile connectors that join pipes seamlessly, ensuring durability, reliability, and efficient fluid transfer across various applications.
                                 </p>
                             </div>
@@ -434,5 +434,5 @@
         </div>
     </div>
 </div>
-<!-- Vendor End -->
+<!-- Vendor End -->
 @endsection
