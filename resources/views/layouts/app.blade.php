@@ -12,13 +12,107 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+    *{
+        box-sizing: border-box;
+    }
+    main{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+    .form-box {
+        max-width: 400px;
+        margin: 0 auto;
+        background: #f1f7fe;
+        overflow: hidden;
+        border-radius: 16px;
+        color: #3D464D;
+    }
+
+    .form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 32px 24px 24px;
+        gap: 16px;
+        text-align: center;
+    }
+
+    /*Form text*/
+    .title {
+        font-weight: bold;
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        color: #3D464D;
+    }
+
+    /*Inputs box*/
+    .form-container {
+        overflow: hidden;
+        margin: 1rem 0 .5rem;
+        width: 100%;
+    }
+
+    .input {
+        background: none;
+        border: 0;
+        outline: 0;
+        height: 50px;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        padding: 8px 15px;
+        margin-bottom: 10px;
+        background-color: #E0ECFB;
+    }
+
+    .form-section {
+    padding: 16px;
+    background-color: #3D464D;
+    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+    }
+
+    .form-section a {
+    font-weight: bold;
+    color: #fff;
+    transition: color .3s ease;
+    }
+
+    .form-section a:hover {
+    color: #005ce6;
+    text-decoration: underline;
+    }
+
+    /*Button*/
+    .form button {
+    background-color: #3D464D;
+    color: #fff;
+    border: 0;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    }
+
+    .form button:hover {
+    background-color: #3D464D;
+    }
+</style>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -70,7 +164,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
         <main class="py-4">
             @yield('content')

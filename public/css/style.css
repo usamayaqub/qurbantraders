@@ -9607,8 +9607,9 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .cat-item {
-  background: #FFFFFF;
+  background: #Fafafa;
   transition: .5s;
+  border: 2px dotted #FFD333;
 }
 
 .cat-item:hover {
@@ -9901,7 +9902,7 @@ a.text-dark:hover, a.text-dark:focus {
 .section-head h4 {
   position: relative;
   padding:0;
-  color:#f91942;
+  color:#FFD333;
   line-height: 1;
   letter-spacing:0.3px;
   font-size: 34px;
@@ -10181,5 +10182,4 @@ p.service_text{
     top: 0;
     left: 0;
     background: #1c262d;
-    ;
 }

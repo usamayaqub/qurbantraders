@@ -16,18 +16,6 @@
                     </div>
                 </div>
             </div>
-            <div class="d-inline-flex align-items-center d-block d-lg-none">
-                <a href="" class="btn px-0 ml-2">
-                    <i class="fas fa-heart text-dark"></i>
-                    <span class="badge text-dark border border-dark rounded-circle"
-                        style="padding-bottom: 2px;">0</span>
-                </a>
-                <a href="" class="btn px-0 ml-2">
-                    <i class="fas fa-shopping-cart text-dark"></i>
-                    <span class="badge text-dark border border-dark rounded-circle"
-                        style="padding-bottom: 2px;">0</span>
-                </a>
-            </div>
         </div>
     </div>
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
@@ -80,8 +68,8 @@
         <div class="col-lg-9">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
                 <a href="" class="text-decoration-none d-block d-lg-none">
-                    <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
-                    <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+                    <span class="h1 text-uppercase text-dark bg-light px-2">Qurban</span>
+                    <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Trader</span>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse"
                     data-target="#navbarCollapse">

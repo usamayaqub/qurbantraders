@@ -348,6 +348,22 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="{{asset('img/B2.png')}}" alt="">
+                <div class="offer-text">
+                    <h3 class="text-white mb-3">LPG Plant Fittings</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="{{asset('img/B3.png')}}" alt="">
+                <div class="offer-text">
+                    <h3 class="text-white mb-3">Pipe Line Fitting</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Offer End -->
