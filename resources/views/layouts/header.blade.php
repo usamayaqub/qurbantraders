@@ -27,9 +27,9 @@
             </a>
         </div>
         <div class="col-lg-4 col-6 text-left">
-            <form action="" class="mb-0">
+            <form action="{{route('products')}}" method="GET" class="mb-0">
                 <div class="input-group mb-0">
-                    <input type="text" class="form-control" placeholder="Search for products" aria-label="Search for products" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" name="search_text" placeholder="Search for products" aria-label="Search for products" aria-describedby="button-addon2" value="{{Request('search_text')}}">
                     <div class="input-group-append">
                         <button class="btn btn-dark text-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
                     </div>
@@ -54,15 +54,11 @@
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
                 id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
-                    <a href="" class="nav-item nav-link">Shirts</a>
-                    <a href="" class="nav-item nav-link">Jeans</a>
-                    <a href="" class="nav-item nav-link">Swimwear</a>
-                    <a href="" class="nav-item nav-link">Sleepwear</a>
-                    <a href="" class="nav-item nav-link">Sportswear</a>
-                    <a href="" class="nav-item nav-link">Jumpsuits</a>
-                    <a href="" class="nav-item nav-link">Blazers</a>
-                    <a href="" class="nav-item nav-link">Jackets</a>
-                    <a href="" class="nav-item nav-link">Shoes</a>
+                    @if(isset($categories) && !empty($categories))
+                    @foreach($categories as $c)
+                    <a href="" class="nav-item nav-link">{{$c->name}}</a>
+                    @endforeach
+                    @endif
                 </div>
             </nav>
         </div>

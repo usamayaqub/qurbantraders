@@ -1,34 +1,33 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('title')
-    {{ 'Blogs' }}
+    {{ 'Products' }}
 @endsection
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">Blogs</h4>
+            <h4 class="mb-sm-0 font-size-18">Products</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Blogs</li>
+                    <li class="breadcrumb-item active">Products</li>
                 </ol>
             </div>
         </div>
     </div>
 </div>
 <div class="w-100">
-    <a href="{{route('add.blog')}}" class="btn btn-primary">Add Blog</a>
+    <a href="{{route('add.product')}}" class="btn btn-primary">Add Product</a>
     <div class="row justify-content-center">
         <div class="col-md-12 mt-4">
             <div class="card p-4 rounded cShadow">
                 <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                     <thead>
                         <tr>
-                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Short Description</th>
+                        <th>Description</th>
                         <th>Image</th>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Slug</th>
                         <th>Status</th>
                         <th>Actions</th>
                         </tr>
@@ -53,14 +52,13 @@
             processing: true,
             serverSide: true,
             ordering: false,
-            ajax: '/all-blogs',
+            ajax: '/admin/all-products',
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'image', name: 'image'},
-                {data: 'title', name: 'title'},
+                {data: 'name', name: 'name'},
+                {data: 'short_description', name: 'short_description'},
                 {
-  data: 'content',
-  name: 'content',
+  data: 'description',
+  name: 'description',
   render: function(data, type, row) {
     if (type === 'display' || type === 'filter') {
       // Create a jQuery object from the 'data'
@@ -86,7 +84,7 @@
     return data;
   }
 },
-                {data: 'slug', name: 'slug'},
+                {data: 'image', name: 'image'},
                 {data: 'status', name: 'status'},
                 {data: 'actions', name: 'actions'},
             ]

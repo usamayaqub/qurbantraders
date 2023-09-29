@@ -31,7 +31,9 @@
             <div id="product-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner bg-light">
                     <div class="carousel-item active">
-                        <img class="w-100 h-100" src="{{asset('img/product-1.jpg')}}" alt="Image">
+                    @if(!empty($product->images()))
+                    <img class="img-fluid w-100" src="{{$product->images()->first()->url}}" alt="{{$product->name}}">
+                    @endif
                     </div>
                 </div>
             </div>
@@ -39,7 +41,7 @@
 
         <div class="col-lg-7 h-auto mb-30">
             <div class="h-100 bg-light p-30">
-                <h3>Product Name Goes Here</h3>
+                <h3>{{$product->name}}</h3>
                 <div class="d-flex mb-3">
                     <div class="text-primary mr-2">
                         <small class="fas fa-star"></small>
@@ -51,21 +53,9 @@
                     <small class="pt-1">(99 Reviews)</small>
                 </div>
                 <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
-                <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
-                    clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
-                    Nonumy</p>
+                <p class="mb-4">{{$product->short_description}}</p>
                 <h4 class="mb-3">Product Description</h4>
-                <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
-                    invidunt duo dolores et duo
-                    sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et,
-                    lorem duo et eos elitr,
-                    sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata
-                    kasd ipsum accusam
-                    sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor
-                    aliquyam eirmod nonumy
-                    rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor
-                    lorem, ipsum lorem elitr
-                    sanctus eirmod takimata dolor ea invidunt.
+                <p>{!! $product->description !!}
                 </p>
             </div>
         </div>
@@ -87,7 +77,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Product Name </label>
-                                <input type="text" class="form-control" id="product-name" name="productname">
+                                <input type="text" class="form-control" id="product-name" name="product_name" readonly value="{{$product->name}}">
+                                <input type="hidden" name="product" value="{{$product->id}}">
                             </div>
                             <div class="form-group">
                                 <label for="message">Your Message *</label>
@@ -113,14 +104,22 @@
     <div class="row px-xl-5">
         <div class="col">
             <div class="owl-carousel related-carousel">
+            @if(isset($similarProducts) && !empty($similarProducts))
+            @foreach($similarProducts as $sp)
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{asset('img/product-1.jpg')}}" alt="">
+                    @if(!empty($sp->images()))
+                    <img class="img-fluid w-100" src="{{$sp->images()->first()->url}}" alt="{{$sp->name}}">
+                    @endif
                     </div>
                     <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail')}}">Product Name Goes Here</a>
+                        <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail',['slug' => $sp->slug])}}">{{$sp->name}}</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        @if(!empty($sp->discounted_price))
+                        <h5>Rs.{{$sp->discounted_price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$sp->price}}</del></h6>
+                        @else
+                        <h5>Rs.{{$sp->price}}</h5>
+                        @endif
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -132,6 +131,8 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </div>
