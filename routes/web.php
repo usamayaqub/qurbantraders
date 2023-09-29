@@ -29,6 +29,8 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('g
 
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 
+Route::post('/contact', [AdminController::class, 'contactUs'])->name('contact.send');
+
 
 
 Route::get('/admin', function () {
@@ -59,6 +61,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('update-product/{id}', [AdminController::class, 'updateProduct'])->name('update.product');
         // Products Routes For Admin
 
+    Route::get('all_contact', [AdminController::class, 'indexContact'])->name('contact.index');
+    Route::get('inquiries', [AdminController::class, 'indexProductQuery'])->name('inquiry.index');
 
 });
 

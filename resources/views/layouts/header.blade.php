@@ -8,12 +8,27 @@
         </div>
         <div class="col-lg-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
+                @guest 
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button">Sign in</button>
-                        <button class="dropdown-item" type="button">Sign up</button>
+                        <a href="{{route('login')}}"><button class="dropdown-item" type="button">Sign in</button></a>
+                        <a href="{{route('register')}}"><button class="dropdown-item" type="button">Sign up</button></a>
                     </div>
+                    @endguest
+                    @auth
+                    <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}}</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                    <a href="javascript:void();" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <button class="dropdown-item" type="button">Logout</button> 
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>          
+                    </div>
+                    @endauth
                 </div>
             </div>
             <div class="d-inline-flex align-items-center d-block d-lg-none">
@@ -67,7 +82,7 @@
                 <div class="navbar-nav w-100">
                     @if(isset($categories) && !empty($categories))
                     @foreach($categories as $c)
-                    <a href="" class="nav-item nav-link">{{$c->name}}</a>
+                    <a href="{{route('products',['category' => $c->name])}}" class="nav-item nav-link">{{$c->name}}</a>
                     @endforeach
                     @endif
                 </div>

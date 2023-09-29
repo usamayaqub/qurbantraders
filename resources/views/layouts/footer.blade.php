@@ -28,18 +28,13 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <h5 class="text-secondary text-uppercase mb-4">Products </h5>
+                    <h5 class="text-secondary text-uppercase mb-4">Categories </h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our
-                            Shop</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shop
-                            Detail</a>
-                        <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Shopping
-                            Cart</a>
-                        <a class="text-secondary mb-2" href="#"><i
-                                class="fa fa-angle-right mr-2"></i>Checkout</a>
-                        <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                    @if(isset($categories) && !empty($categories))
+                    @for($i = 0; $i < min(6, count($categories)); $i++)
+                        <a class="text-secondary mb-2" href="{{route('products',['category' => $c->name])}}"><i class="fa fa-angle-right mr-2"></i>{{$c->name}}</a>
+                        @endfor
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">

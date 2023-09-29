@@ -1,6 +1,6 @@
 <?php
 use App\Models\Category;
-$categories = Category::where('status',1)->get();
+$categories = Category::with('products')->where('status',1)->get();
 if(empty($categories)){
 $categories = [];
 }
@@ -51,6 +51,9 @@ $categories = [];
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-snackbar@latest/src/js/snackbar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/node-snackbar@latest/dist/snackbar.min.css" />
+    
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
@@ -87,4 +90,34 @@ $categories = [];
 
 </body>
 
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    // Check if a success or error message is present in the session
+    var successMessage = '{{ Session::get("success") }}';
+    var errorMessage = '{{ Session::get("error") }}';
+
+    if (successMessage !== '') {
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: successMessage,
+            backgroundColor: '#8bd2a4',
+            actionTextColor: '#fff'
+        });
+    }
+
+    if (errorMessage !== '') {
+        Snackbar.show({
+            pos: 'bottom-center',
+            text: errorMessage,
+            backgroundColor: '#ba181b',
+            actionTextColor: '#fff'
+        });
+    }
+});
+</script>
 </html> 

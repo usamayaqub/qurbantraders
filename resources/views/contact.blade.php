@@ -30,30 +30,55 @@
         <div class="col-lg-6 mb-5">
             <div class="contact-form bg-light p-30">
                 <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form name="sentMessage" id="contactForm" novalidate="novalidate" action="{{route('contact.send')}}" method="POST">
+                  @csrf
                     <div class="control-group">
                         <input type="text" class="form-control" id="name" placeholder="Your Name"
-                            required="required" data-validation-required-message="Please enter your name" />
-                        <p class="help-block text-danger"></p>
+                            required="required" data-validation-required-message="Please enter your name" name="name"/>
+                            @error('name')
+                            <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                     </div>
                     <div class="control-group">
                         <input type="email" class="form-control" id="email" placeholder="Your Email"
-                            required="required" data-validation-required-message="Please enter your email" />
-                        <p class="help-block text-danger"></p>
+                            required="required" data-validation-required-message="Please enter your email" name="email"/>
+                            @error('email')
+                        <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                     </div>
+
+                    <div class="control-group">
+                        <input type="number" class="form-control" id="email" placeholder="Your Mobile Number"
+                            required="required" data-validation-required-message="Please enter your email" name="mobile_number"/>
+                            @error('mobile_number')
+                        <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
+                    </div>
+
                     <div class="control-group">
                         <input type="text" class="form-control" id="subject" placeholder="Subject"
-                            required="required" data-validation-required-message="Please enter a subject" />
+                            required="required" data-validation-required-message="Please enter a subject" name="title"/>
                         <p class="help-block text-danger"></p>
+                        @error('title')
+                        <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                     </div>
                     <div class="control-group">
                         <textarea class="form-control" rows="8" id="message" placeholder="Message"
                             required="required"
-                            data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+                            data-validation-required-message="Please enter your message" name="message"></textarea>
+                            @error('message')
+                        <p class="help-block text-danger">{{ $message }}</p>
+                            @enderror
                     </div>
+
+                    <div class="form-group">
+                  <div class="g-recaptcha" data-sitekey="{{ env('NOCAPTCHA_SITEKEY') }}"></div>
+                  <div class="recaptcha-error" style="color: red;"></div>
+                  </div>
+
                     <div>
-                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Send
+                        <button class="btn btn-primary py-2 px-4" type="submit" id="submit-button">Send
                             Message</button>
                     </div>
                 </form>
@@ -73,4 +98,27 @@
     </div>
 </div>
 <!-- Contact End -->
+
+<!-- <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var recaptcha = document.querySelector(".g-recaptcha");
+
+        var submitButton = document.querySelector("#submit-button");
+
+        submitButton.addEventListener("click", function (event) {
+            event.preventDefault(); 
+
+            // Check if reCAPTCHA is checked
+            if (grecaptcha.getResponse().length === 0) {
+                // If reCAPTCHA is not checked, display an error message
+                var recaptchaError = document.querySelector(".recaptcha-error");
+                recaptchaError.textContent = "Please complete the reCAPTCHA.";
+            } else {
+                // If reCAPTCHA is checked, submit the form
+                document.querySelector("#contact-form").submit();
+            }
+        });
+    });
+</script> -->
 @endsection
