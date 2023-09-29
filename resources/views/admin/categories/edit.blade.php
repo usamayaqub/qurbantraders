@@ -59,7 +59,7 @@
             @endisset
             @csrf
             <div class="row">
-                <div class="form-group col-sm-7 mb-2">
+                <div class="form-group col-sm-6 mb-2">
                     <label for="">Name<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <input type="text" required class="form-control" name="name" @isset($type)value="{{$type->name}}" @endisset placeholder="Enter Category Name">
@@ -71,7 +71,7 @@
                     @enderror
                 </div>  
 
-                <div class="form-group col-sm-7 mb-2">
+                <div class="form-group col-sm-6 mb-2">
                 <label for="">Image<span class="text-danger">*</span></label>
                 <div class="input-group">
                 <input type="file" class="form-control all_imgs_" accept="image/*" name="image" id="banner-input">
@@ -89,9 +89,9 @@
                 </div>
                 @endif
                 
-                <div class="form-group col-sm-6 mb-2 d-flex align-items-end">
+                <div class="form-group col-sm-6 mb-2 mt-3 d-flex align-items-end">
                     <label for="switch4" data-on-label="Yes" data-off-label="No">
-                        <label for="">Status: </label>
+                        <label for="">Status (Active / Inactive)</label>
                         <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
                             <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg" @if(isset($type) && $type->status == 1) checked="" @endif>
                         </div>

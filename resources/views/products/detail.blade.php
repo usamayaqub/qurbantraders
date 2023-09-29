@@ -14,9 +14,9 @@
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30">
-                <a class="breadcrumb-item text-dark" href="#">Home</a>
-                <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                <span class="breadcrumb-item active">Shop Detail</span>
+                <a class="breadcrumb-item text-dark" href="{{route('get-home')}}">Home</a>
+                <a class="breadcrumb-item text-dark" href="{{route('get-home')}}">All Products</a>
+                <span class="breadcrumb-item active">{{$product->name}}</span>
             </nav>
         </div>
     </div>
@@ -32,7 +32,9 @@
                 <div class="carousel-inner bg-light">
                     <div class="carousel-item active">
                     @if(!empty($product->images()))
-                    <img class="img-fluid w-100" src="{{$product->images()->first()->url}}" alt="{{$product->name}}">
+                    <div class="single-product-image">
+                        <img class="img-fluid w-100" src="{{$product->images()->first()->url}}" alt="{{$product->name}}">
+                    </div>
                     @endif
                     </div>
                 </div>

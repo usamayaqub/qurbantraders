@@ -1,29 +1,29 @@
 @extends('admin.layouts.app')
 @isset($type)
-    @section('title', 'Edit Product')
+@section('title', 'Edit Product')
 @else
-    @section('title', 'Add Product')
+@section('title', 'Add Product')
 @endisset
 @section('content')
 <style>
-.image-container {
-    position: relative;
-    display: inline-block;
-}
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
 
-.delete-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
+    .delete-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
 
-.image-container:hover .delete-icon {
-    opacity: 1;
-    cursor: pointer;
-}
+    .image-container:hover .delete-icon {
+        opacity: 1;
+        cursor: pointer;
+    }
 </style>
 
 <div class="container-fluid">
@@ -60,12 +60,13 @@
             @csrf
             <div class="row">
 
-            <div class="form-group col-sm-7 mb-2">
+                <div class="form-group col-sm-6 mb-4">
                     <label for="">Select Category<span class="text-danger">*</span></label>
-                    <select class="input-group" name="category">
+                    <select class="form-select" name="category">
                         @if(!empty($categories))
                         @foreach($categories as $c)
-                        <option value="{{$c->id}}" @isset($type) @if($type->cat_id == $c->id) selected @endif @endisset>{{$c->name}}</option>
+                        <option value="{{$c->id}}" @isset($type) @if($type->cat_id == $c->id) selected @endif
+                            @endisset>{{$c->name}}</option>
                         @endforeach
                         @endif
                     </select>
@@ -74,78 +75,86 @@
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div> 
+                </div>
 
-                <div class="form-group col-sm-7 mb-2">
-                    <label for="">Name<span class="text-danger">*</span></label>
+                <div class="form-group col-sm-6 mb-4">
+                    <label for="">Product Name<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="name" @isset($type)value="{{$type->name}}" @endisset placeholder="Enter name">
+                        <input type="text" required class="form-control" name="name"
+                            @isset($type)value="{{$type->name}}" @endisset placeholder="Enter name">
                     </div>
                     @error('name')
                     <span class="invalid-feedback mt-0" @error('name')style="display: block" @enderror role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div> 
-                
-                <div class="form-group col-sm-7 mb-2">
-                    <label for="">Price<span class="text-danger">*</span></label>
+                </div>
+
+                <div class="form-group col-sm-6 mb-4">
+                    <label for="">Product Price<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="price" @isset($type)value="{{$type->price}}" @endisset placeholder="Enter price">
+                        <input type="text" required class="form-control" name="price"
+                            @isset($type)value="{{$type->price}}" @endisset placeholder="Enter price">
                     </div>
                     @error('price')
                     <span class="invalid-feedback mt-0" @error('price')style="display: block" @enderror role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div>  
+                </div>
 
-                <div class="form-group col-sm-7 mb-2">
-                    <label for="">Discounted Price<span class="text-danger">*</span></label>
+                <div class="form-group col-sm-6 mb-4">
+                    <label for="">Discounted Product Price<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="discounted_price" @isset($type)value="{{$type->discounted_price}}" @endisset placeholder="Enter discounted price">
+                        <input type="text" required class="form-control" name="discounted_price"
+                            @isset($type)value="{{$type->discounted_price}}" @endisset
+                            placeholder="Enter discounted price">
                     </div>
                     @error('discounted_price')
-                    <span class="invalid-feedback mt-0" @error('discounted_price')style="display: block" @enderror role="alert">
+                    <span class="invalid-feedback mt-0" @error('discounted_price')style="display: block" @enderror
+                        role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div> 
+                </div>
 
-                <div class="form-group col-sm-7 mb-2">
-                    <label for="">Short Description<span class="text-danger">*</span></label>
+                <div class="form-group col-sm-12 mb-4">
+                    <label for="">Short Description of Product<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="short_description" @isset($type)value="{{$type->short_description}}" @endisset placeholder="Enter short description">
+                        <textarea name="short_description" @isset($type)value="{{$type->short_description}}" @endisset id="" cols="30" rows="5" required class="form-control" placeholder="Enter short description"></textarea>
                     </div>
                     @error('short_description')
-                    <span class="invalid-feedback mt-0" @error('short_description')style="display: block" @enderror role="alert">
+                    <span class="invalid-feedback mt-0" @error('short_description')style="display: block" @enderror
+                        role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div>  
+                </div>
 
-                <div class="form-group col-sm-7 mb-2">
-                    <label for="">Description<span class="text-danger">*</span></label>
+                <div class="form-group col-sm-12 mb-4">
+                    <label for="">Product Description<span class="text-danger">*</span></label>
                     <div class="">
-                        <textarea  name="description" class="form-control" id="description" rows="20">{!! isset($type) ? $type->description : '' !!}
+                        <textarea name="description" class="form-control" id="description" rows="20">{!! isset($type) ? $type->description : '' !!}
                         </textarea>
                     </div>
                     @error('content')
-                    <span class="invalid-feedback mt-0" @error('description')style="display: block" @enderror role="alert">
+                    <span class="invalid-feedback mt-0" @error('description')style="display: block" @enderror
+                        role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                 </div>
 
-                <div class="form-group col-sm-7 mb-2">
-                <label for="">Image<span class="text-danger">*</span></label>
-                <div class="input-group">
-                <input type="file" class="form-control all_imgs_" accept="image/*" name="image[]" id="banner-input">
-                </div>
+                <div class="form-group col-sm-6 mb-4">
+                    <label for="">Product Image<span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <input type="file" class="form-control all_imgs_" accept="image/*" name="image[]"
+                            id="banner-input">
+                    </div>
                 </div>
                 @error('image')
                 <span class="invalid-feedback mt-0" @error('image')style="display: block" @enderror role="alert">
-                <strong>{{ $message }}</strong>
+                    <strong>{{ $message }}</strong>
                 </span>
                 @enderror
 
@@ -158,12 +167,13 @@
                 </div>
                 @endforeach
                 @endif
-                
+
                 <div class="form-group col-sm-6 mb-2 d-flex align-items-end">
                     <label for="switch4" data-on-label="Yes" data-off-label="No">
                         <label for="">Status: </label>
                         <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
-                            <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg" @if(isset($type) && $type->status == 1) checked="" @endif>
+                            <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg"
+                                @if(isset($type) && $type->status == 1) checked="" @endif>
                         </div>
                     </label>
                 </div>
@@ -178,35 +188,35 @@
 <script src="{{asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
 
 <script>
-tinymce.init({
-  selector: 'textarea#description',
-  plugins: [
-    "code advlist autolink lists link image charmap print preview anchor",
-    "searchreplace visualblocks code fullscreen",
-    "insertdatetime media table paste"
-  ],
-  toolbar: "code insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    tinymce.init({
+        selector: 'textarea#description',
+        plugins: [
+            "code advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table paste"
+        ],
+        toolbar: "code insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
 
-  setup: function (editor) {
-    editor.ui.registry.addButton('image', {
-      icon: 'image',
-      onAction: function () {
-        openImagePickerDialog(editor);
-      }
-    });
+        setup: function (editor) {
+            editor.ui.registry.addButton('image', {
+                icon: 'image',
+                onAction: function () {
+                    openImagePickerDialog(editor);
+                }
+            });
 
-    editor.on('init', function () {
-      var existingData = `{!! isset($type) ? $type->description : '' !!}`;
-      editor.setContent(existingData);
+            editor.on('init', function () {
+                var existingData = `{!! isset($type) ? $type->description : '' !!}`;
+                editor.setContent(existingData);
+            });
+        },
+        file_picker_types: 'image',
+        file_picker_callback: function (callback, value, meta) {
+            if (meta.filetype === 'image') {
+                openImagePickerDialog(callback);
+            }
+        }
     });
-  },
-  file_picker_types: 'image',
-  file_picker_callback: function (callback, value, meta) {
-    if (meta.filetype === 'image') {
-      openImagePickerDialog(callback);
-    }
-  }
-});
 
 </script>
 

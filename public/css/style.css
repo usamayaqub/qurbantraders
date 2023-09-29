@@ -10612,3 +10612,17 @@ p.awesome_line {
     height: 100%;
     object-fit: cover;
 }
+
+.dropdown-max-height{
+    max-height: 350px;
+    overflow-y: auto;
+}
+.single-product-image{
+  width: 100%;
+  height: 490px;
+}
+.single-product-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
