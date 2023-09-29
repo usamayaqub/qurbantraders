@@ -14,11 +14,10 @@
 <div id="overlay1">
     <div id="status">
         <div id="status-overlay"></div>
-    </div>
-</div>
-<div id="overlay2">
-    <div id="status">
-        <div id="status-overlay"></div>
+        <div class="text-decoration-none overlay-logo">
+            <span class="h1 text-uppercase text-primary bg-dark px-2">Qurban</span>
+            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Trader</span>
+        </div>
     </div>
 </div>
 <!-- Carousel Start -->
