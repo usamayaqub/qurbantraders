@@ -164,15 +164,23 @@
         <span class="bg-secondary pr-3">Featured Products</span>
     </h2>
     <div class="row px-xl-5">
+    @if(isset($fProducts) && !empty($fProducts))
+        @foreach($fProducts as $fp)
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
             <div class="product-item bg-light mb-4">
                 <div class="product-img position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{{asset('img/product-1.jpg')}}" alt="">
+                    @if(!empty($fp->images()))
+                    <img class="img-fluid w-100" src="{{$fp->images()->first()->url}}" alt="{{$fp->name}}">
+                    @endif
                 </div>
                 <div class="text-center py-4">
-                    <a class="h6 text-decoration-none text-truncate stretched-link" href="">Product Name Goes Here</a>
+                    <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail',['slug' => $fp->slug])}}">{{$fp->name}}</a>
                     <div class="d-flex align-items-center justify-content-center mt-2">
-                        <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        @if(!empty($fp->discounted_price))
+                        <h5>Rs.{{$fp->discounted_price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$fp->price}}</del></h6>
+                        @else
+                        <h5>Rs.{{$fp->price}}</h5>
+                        @endif
                     </div>
                     <div class="d-flex align-items-center justify-content-center mb-1">
                         <small class="fa fa-star text-primary mr-1"></small>
@@ -185,6 +193,8 @@
                 </div>
             </div>
         </div>
+        @endforeach
+        @endif
     </div>
 </div>
 <!-- Products End -->
@@ -218,16 +228,25 @@
 <div class="container-fluid pt-5 pb-3">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
         <span class="bg-secondary pr-3">Recent Products</span></h2>
+    
     <div class="row px-xl-5">
-        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+    @if(isset($rProducts) && !empty($rProducts))
+        @foreach($rProducts as $rp)
+    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
             <div class="product-item bg-light mb-4">
                 <div class="product-img position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{{asset('img/product-1.jpg')}}" alt="">
+                    @if(!empty($rp->images()))
+                    <img class="img-fluid w-100" src="{{$rp->images()->first()->url}}" alt="{{$rp->name}}">
+                    @endif
                 </div>
-                <div class="text-center py-4 px-3">
-                    <a class="h6 text-decoration-none text-truncate stretched-link" href="">Product Name Goes Hered  oiadhad hoh oiu dAFID</a>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail',['slug' => $rp->slug])}}">{{$rp->name}}</a>
                     <div class="d-flex align-items-center justify-content-center mt-2">
-                        <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        @if(!empty($rp->discounted_price))
+                        <h5>Rs.{{$rp->discounted_price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$rp->price}}</del></h6>
+                        @else
+                        <h5>Rs.{{$rp->price}}</h5>
+                        @endif
                     </div>
                     <div class="d-flex align-items-center justify-content-center mb-1">
                         <small class="fa fa-star text-primary mr-1"></small>
@@ -239,8 +258,9 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+        @endif
         </div>
-    </div>
 </div>
 <!-- Products End -->
 

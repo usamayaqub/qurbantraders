@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::where('status',1)->get();
-        return view('home',compact('categories'));
+        $baseQuery = Product::query()->with('images','category')->where('status',1);
+        $rProducts = $baseQuery->latest()->get();
+        $fProducts = $baseQuery->get();
+        return view('home',compact('categories','fProducts','rProducts'));
     }
     public function about()
     {
@@ -35,13 +39,31 @@ class HomeController extends Controller
     {
         return view('teams');
     }
-    public function allProducts()
+    public function allProducts(Request $request)
     {
-        return view('products.index');
+        $baseQuery = Product::query()->with('images','category')->where('status',1);
+
+        if ($request->has('search_text') && !empty($request->search_text)) {
+            $searchText = $request->input('search_text');
+            $baseQuery->where(function ($query) use ($searchText) {
+                $query->where('name', 'LIKE', "%$searchText%")
+                    ->orWhere('price', 'LIKE', "%$searchText%")
+                    ->orWhere('description', 'LIKE', "%$searchText%")
+                    ->orWhereHas('category', function ($query) use ($searchText) {
+                        $query->where('name', 'LIKE', "%$searchText%");
+                    });
+            });
+        }
+        $perPage = $request->has('per_page') ? $request->input('per_page') : 10; 
+        $page = $request->has('page') ? $request->input('page') : 1; 
+        $products = $baseQuery->latest()->paginate($perPage, ['*'], 'page', $page);
+        return view('products.index',compact('products'));
     }
-    public function productsDetail()
+    public function productsDetail($slug)
     {
-        return view('products.detail');
+        $product = Product::where('slug',$slug)->with('images','category')->first();
+        $similarProducts = Product::where('cat_id',$product->cat_id)->with('images','category')->get();
+        return view('products.detail',compact('product','similarProducts'));
     }
     public function contact()
     {

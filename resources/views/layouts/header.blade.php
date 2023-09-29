@@ -38,9 +38,9 @@
             </a>
         </div>
         <div class="col-lg-4 col-6 text-left">
-            <form action="" class="mb-0">
+            <form action="{{route('products')}}" method="GET" class="mb-0">
                 <div class="input-group mb-0">
-                    <input type="text" class="form-control" placeholder="Search for products" aria-label="Search for products" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" name="search_text" placeholder="Search for products" aria-label="Search for products" aria-describedby="button-addon2" value="{{Request('search_text')}}">
                     <div class="input-group-append">
                         <button class="btn btn-dark text-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
                     </div>

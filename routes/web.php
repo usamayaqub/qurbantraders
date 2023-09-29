@@ -21,7 +21,7 @@ Route::get('/',[HomeController::class, 'index'])->name('get-home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/our-team', [HomeController::class, 'teams'])->name('teams');
 Route::get('/products', [HomeController::class, 'allProducts'])->name('products');
-Route::get('/products/products-detail', [HomeController::class, 'productsDetail'])->name('products-detail');
+Route::get('/product/{slug}', [HomeController::class, 'productsDetail'])->name('products-detail');
 Route::get('/search', [HomeController::class, 'productSearch'])->name('search');
 Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('get-privacy');
 
@@ -50,6 +50,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('edit-category/{id}', [AdminController::class, 'editCategory'])->name('edit.category');
     Route::post('update-category/{id}', [AdminController::class, 'updateCategory'])->name('update.category');
     // Categories Routes For Admin
+
+        // Products Routes For Admin
+        Route::get('all-products', [AdminController::class, 'allProducts'])->name('admin.products');
+        Route::get('add-product', [AdminController::class, 'addProduct'])->name('add.product');
+        Route::post('add-product', [AdminController::class, 'storeProduct'])->name('insert.product');
+        Route::get('edit-product/{id}', [AdminController::class, 'editProduct'])->name('edit.product');
+        Route::post('update-product/{id}', [AdminController::class, 'updateProduct'])->name('update.product');
+        // Products Routes For Admin
 
 
 });

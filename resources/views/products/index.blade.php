@@ -31,15 +31,23 @@
         <!-- Shop Product Start -->
         <div class="col-lg-12">
             <div class="row pb-3">
+            @if(isset($products) && !empty($products) && count($products) > 0)
+                @foreach($products as $p)
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                     <div class="product-item bg-light mb-4">
                         <div class="product-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="{{asset('img/product-1.jpg')}}" alt="">
+                        @if(!empty($p->images()))
+                    <img class="img-fluid w-100" src="{{$p->images()->first()->url}}" alt="{{$p->name}}">
+                        @endif
                         </div>
                         <div class="text-center py-4 px-3">
-                            <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail')}}">Product Name Goes Heres kfgis ufgsifg</a>
+                            <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail',['slug' => $p->slug])}}">{{$p->name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            @if(!empty($p->discounted_price))
+                            <h5>Rs.{{$p->discounted_price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$p->price}}</del></h6>
+                            @else
+                            <h5>Rs.{{$p->price}}</h5>
+                            @endif
                             </div>
                             <div class="d-flex align-items-center justify-content-center mb-1">
                                 <small class="fa fa-star text-primary mr-1"></small>
@@ -52,17 +60,31 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
+                @else
+                <h5>No products found</h5>
+                @endif
                 <div class="col-12">
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                </div>
+    <nav>
+        <ul class="pagination justify-content-center">
+            @if ($products->lastPage() > 1)
+                <li class="page-item {{ $products->onFirstPage() ? 'disabled' : '' }}">
+                    <a class="page-link" href="{{ $products->previousPageUrl() }}">Previous</a>
+                </li>
+
+                @for ($i = 1; $i <= $products->lastPage(); $i++)
+                    <li class="page-item {{ $i == $products->currentPage() ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
+                    </li>
+                @endfor
+
+                <li class="page-item {{ $products->hasMorePages() ? '' : 'disabled' }}">
+                    <a class="page-link" href="{{ $products->nextPageUrl() }}">Next</a>
+                </li>
+            @endif
+        </ul>
+    </nav>
+        </div>
             </div>
         </div>
     </div>
