@@ -67,27 +67,45 @@
             <div class="bg-light p-30">
                 <div class="tab-content">
                     <div class="col-md-12">
-                        <h4 class="mb-4">Make a Inquery of This Product</h4>
-                        <form>
+                        <h4 class="mb-4">Make a enquiry of This Product</h4>
+                        <form action="{{route('contact.send')}}" method="POST">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Your Name *</label>
                                 <input type="text" class="form-control" id="name" name="name">
+                                @error('name')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="email">Your Email *</label>
                                 <input type="email" class="form-control" id="email" name="email">
+                                @error('email')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Mobile Number *</label>
+                                <input type="number" class="form-control" id="email" name="mobile_number">
+                                @error('mobile_number')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="email">Product Name </label>
                                 <input type="text" class="form-control" id="product-name" name="product_name" readonly value="{{$product->name}}">
-                                <input type="hidden" name="product" value="{{$product->id}}">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                
                             </div>
                             <div class="form-group">
                                 <label for="message">Your Message *</label>
                                 <textarea id="message" cols="30" rows="5" class="form-control" name="message"></textarea>
+                                @error('message')
+                                <p class="help-block text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group mb-0">
-                                <input type="submit" value="Send" class="btn btn-primary px-3">
+                                <button type="submit" value="Send" class="btn btn-primary px-3">Send Inquiry</button>
                             </div>
                         </form>
                     </div>

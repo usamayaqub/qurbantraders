@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\FileUploadTrait;
+use App\Mail\QueryMail;
 use App\Models\Category;
+use App\Models\ContactQuery;
 use App\Models\Product;
+use App\Models\ProductQuery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
 
@@ -23,6 +28,14 @@ class AdminController extends Controller
         $data = Category::orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             return DataTables::of($data)
+            ->editColumn('image', function ($item) {
+                if ($item->image) {
+                    // Display the image using the <img> tag
+                    return '<img src="' . $item->image . '" alt="Image" width="70px" height="60">';
+                } else {
+                    return 'No Image';
+                }
+            })
                 ->addColumn('status', function ($data) {
                     $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
                     if ($data->status == 1) {
@@ -36,7 +49,7 @@ class AdminController extends Controller
                     </div>';
                     return $actions;
                 })
-                ->rawColumns(['status', 'actions'])
+                ->rawColumns(['status', 'actions','image'])
                 ->make(true);
         }
         return view('admin.categories.index');
@@ -101,9 +114,20 @@ class AdminController extends Controller
 
     public function allProducts(Request $request)
     {
-        $data = Product::with('category')->orderBy('created_at', 'desc')->get();
+        $data = Product::with('category','images')->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             return DataTables::of($data)
+            ->addColumn('image', function ($data) {
+                $firstImage = $data->images->first();
+                // Check if there is a first image available
+                if ($firstImage) {
+                    // Display the image using the <img> tag
+                    return '<img src="' . $firstImage->url . '" alt="Image" width="70px" height="60">';
+                } else {
+                    // If no image is available, you can display a placeholder or a message
+                    return 'No Image';
+                }
+            })
                 ->addColumn('status', function ($data) {
                     $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
                     if ($data->status == 1) {
@@ -117,7 +141,7 @@ class AdminController extends Controller
                     </div>';
                     return $actions;
                 })
-                ->rawColumns(['status', 'actions'])
+                ->rawColumns(['status', 'actions', 'image'])
                 ->make(true);
         }
         return view('admin.products.index');
@@ -210,5 +234,107 @@ class AdminController extends Controller
             $product->images()->insert($images_arr);
         }
         return redirect()->route('admin.products')->with('success', 'Product updated successfully.');
+    }
+
+    public function contactUs(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'mobile_number' => 'required',
+            'title' => 'nullable|string|max:255',
+            'message' => 'required|string',
+            // 'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        if(isset($request->product_id) && !empty($request->product_id)){
+            $message = 'Inquiry submitted successfully';
+            $product = Product::find($request->product_id);
+            $subject = 'New Inquiry | Qurban Traders | You have received a new Product inquiry for ' . $product->name;
+            ProductQuery::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile_number' => $request->mobile_number,
+                'product_id' => $request->product_id,
+                'message' => $request->message,
+            ]);
+    
+            $data = [
+                'is_contact' => 0,
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile_number' => $request->mobile_number,
+                'title' => $product->name,
+                'message' => $request->message,
+            ];
+
+        }else{
+            $message = 'Message submitted successfully';
+            $subject = 'New Contact Messgae | You have received a new contact message from ' . $request->name;
+            ContactQuery::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile_number' => $request->mobile_number,
+                'title' => $request->title,
+                'message' => $request->message,
+            ]);
+    
+            $data = [
+                'is_contact' => 1,
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile_number' => $request->mobile_number,
+                'title' => $request->title,
+                'message' => $request->message,
+            ];
+        }
+
+        Mail::to('info@qurban-traders.com')->cc('usamayaqub302@gmail.com')->bcc('danishkhurshid333@gmail.com')->send(new QueryMail($data,$subject));
+        return redirect()->back()->with('success',$message);
+    }
+
+    public function indexContact(Request $request)
+    {
+        $data = ContactQuery::latest()->get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->editColumn('created_at', function ($item) {
+                    return Carbon::parse($item->created_at)->format('d-m-Y, h:i A');
+                })
+                ->addColumn('message', function ($item) {
+                    $trimmedMessage = strlen($item->message) > 100 ? substr($item->message, 0, 100) . '...' : $item->message;
+                    $showMoreButton = strlen($item->message) > 100 ? '<button class="btn btn-link show-more-btn" data-full-message="' . htmlspecialchars($item->message, ENT_QUOTES) . '">Show More</button>' : '';
+                    return '<div class="message">' . $trimmedMessage . '</div>' . $showMoreButton;
+                })
+                ->rawColumns(['created_at','message'])
+                ->make(true);
+        }
+        return view('admin.contact.index');
+    }
+
+    public function indexProductQuery(Request $request)
+    {
+        $data = ProductQuery::with('product')->latest()->get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addColumn('product', function ($data)  {
+                   return $data->product->name;
+                })
+                ->editColumn('created_at', function ($item) {
+                    return Carbon::parse($item->created_at)->format('d-m-Y, h:i A');
+                })
+                ->addColumn('message', function ($item) {
+                    $trimmedMessage = strlen($item->message) > 100 ? substr($item->message, 0, 100) . '...' : $item->message;
+                    $showMoreButton = strlen($item->message) > 100 ? '<button class="btn btn-link show-more-btn" data-full-message="' . htmlspecialchars($item->message, ENT_QUOTES) . '">Show More</button>' : '';
+                    return '<div class="message">' . $trimmedMessage . '</div>' . $showMoreButton;
+                })
+                ->rawColumns(['created_at','message','product'])
+                ->make(true);
+        }
+        return view('admin.contact.product');
     }
 }

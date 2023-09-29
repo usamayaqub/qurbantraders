@@ -37,7 +37,7 @@
                 <ul class="navbar-nav active">
 
                     <li class="nav-item dropdown  d-flex align-items-center">
-                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="#" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="{{route('admin.home')}}" id="topnav-dashboard" role="button">
                             <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Dashboard</span>
                         </a>
                     
@@ -56,14 +56,14 @@
 
                     </li>
                     <li class="nav-item dropdown d-flex align-items-center">
-                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="#" id="topnav-components" role="button">
-                            <i class="bx bx-cart me-2"></i><span key="t-components">Products Inquiry</span>
+                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="{{route('inquiry.index')}}" id="topnav-components" role="button">
+                            <i class="bx bx-cart me-2"></i><span key="t-components">Inquiries</span>
                         </a>
 
                     </li>
 
                     <li class="nav-item dropdown d-flex align-items-center">
-                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="#" id="topnav-components" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none d-flex align-items-center" href="{{route('contact.index')}}" id="topnav-components" role="button">
                             <i class='bx bxs-message me-2'></i><span key="t-components">Contact</span>
                         </a>
 
