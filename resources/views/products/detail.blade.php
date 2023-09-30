@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'About')
-@section('meta_description', '')
+@section('meta_title', $product->name . ' | Qurban Traders')
+@section('meta_description', $product->short_description)
 @section('canonical',"")
 
 @section('script_css')
