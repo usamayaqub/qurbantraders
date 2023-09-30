@@ -100,12 +100,12 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
     </div>
 </div>
 
-<div class="loader-container">
+{{-- <div class="loader-container">
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
-</div>
+</div> --}}
 <!-- Contact End -->
 
 <script src="https://www.google.com/recaptcha/api.js"></script>

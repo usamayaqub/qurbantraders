@@ -44,7 +44,7 @@ $categories = [];
     <meta name="msapplication-TileImage" content="{{ asset('/img/icons/apple-touch-icon.png?v=2.6') }}">
     <!-- Chrome for Android theme color -->
     <meta name="theme-color" content="#17a6b5">
-    <link rel="shortcut icon" type="image/png" href="{{asset('./assets/images/fav.png')}}" />
+    <link rel="shortcut icon" type="image/png" href="{{asset('img/QT.png')}}" />
 
 
     <!-- Google Web Fonts -->
