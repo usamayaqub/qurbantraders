@@ -114,8 +114,14 @@
                                 <p class="help-block text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="{{ env('NOCAPTCHA_SITEKEY') }}"></div>
+                            <div class="recaptcha-error" style="color: red;"></div>
+                            </div>
+
                             <div class="form-group mb-0">
-                                <button type="submit" value="Send" class="btn btn-primary px-3">Send Inquiry</button>
+                                <button type="submit" value="Send" class="btn btn-primary px-3" id="submit-button">Send Inquiry</button>
                             </div>
                         </form>
                     </div>
@@ -168,4 +174,27 @@
     </div>
 </div>
 <!-- Products End -->
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var recaptcha = document.querySelector(".g-recaptcha");
+
+        var submitButton = document.querySelector("#submit-button");
+
+        submitButton.addEventListener("click", function (event) {
+            event.preventDefault(); 
+
+            // Check if reCAPTCHA is checked
+            if (grecaptcha.getResponse().length === 0) {
+                // If reCAPTCHA is not checked, display an error message
+                var recaptchaError = document.querySelector(".recaptcha-error");
+                recaptchaError.textContent = "Please complete the reCAPTCHA.";
+            } else {
+                // If reCAPTCHA is checked, submit the form
+                document.querySelector("#contact-form").submit();
+            }
+        });
+    });
+</script> 
 @endsection
