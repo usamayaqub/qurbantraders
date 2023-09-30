@@ -81,7 +81,7 @@
                     <label for="">Product Name<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <input type="text" required class="form-control" name="name"
-                            @isset($type)value="{{$type->name}}" @endisset placeholder="Enter name">
+                            @isset($type) value="{{$type->name}}" @endisset value="{{old('name')}}"placeholder="Enter name">
                     </div>
                     @error('name')
                     <span class="invalid-feedback mt-0" @error('name')style="display: block" @enderror role="alert">
@@ -93,8 +93,7 @@
                 <div class="form-group col-sm-6 mb-4">
                     <label for="">Product Price<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="price"
-                            @isset($type)value="{{$type->price}}" @endisset placeholder="Enter price">
+                        <input type="number" required class="form-control" name="price" @isset($type) value="{{$type->price}}" @endisset value="{{old('price')}}" placeholder="Enter price">
                     </div>
                     @error('price')
                     <span class="invalid-feedback mt-0" @error('price')style="display: block" @enderror role="alert">
@@ -106,9 +105,7 @@
                 <div class="form-group col-sm-6 mb-4">
                     <label for="">Discounted Product Price<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="discounted_price"
-                            @isset($type)value="{{$type->discounted_price}}" @endisset
-                            placeholder="Enter discounted price">
+                        <input type="number" required class="form-control" name="discounted_price" @isset($type) value="{{$type->discounted_price}}" @endisset value="{{old('discounted_price')}}" placeholder="Enter discounted price">
                     </div>
                     @error('discounted_price')
                     <span class="invalid-feedback mt-0" @error('discounted_price')style="display: block" @enderror
@@ -121,7 +118,7 @@
                 <div class="form-group col-sm-12 mb-4">
                     <label for="">Short Description of Product<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <textarea name="short_description" @isset($type)value="{{$type->short_description}}" @endisset id="" cols="30" rows="5" required class="form-control" placeholder="Enter short description"></textarea>
+                        <textarea name="short_description" @isset($type) value="{{$type->short_description}}" @endisset  value="{{old('short_description')}}" id="" cols="30" rows="5" required class="form-control" placeholder="Enter short description">@isset($type) {{$type->short_description}} @endisset</textarea>
                     </div>
                     @error('short_description')
                     <span class="invalid-feedback mt-0" @error('short_description')style="display: block" @enderror
@@ -134,7 +131,7 @@
                 <div class="form-group col-sm-12 mb-4">
                     <label for="">Product Description<span class="text-danger">*</span></label>
                     <div class="">
-                        <textarea name="description" class="form-control" id="description" rows="20">{!! isset($type) ? $type->description : '' !!}
+                        <textarea name="description" class="form-control" id="description" rows="20" value="{{old('description')}}">{!! isset($type) ? $type->description : '' !!}
                         </textarea>
                     </div>
                     @error('content')

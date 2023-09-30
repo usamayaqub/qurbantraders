@@ -108,7 +108,7 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
 </div>
 <!-- Contact End -->
 
-<!-- <script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         var recaptcha = document.querySelector(".g-recaptcha");
@@ -129,5 +129,5 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
             }
         });
     });
-</script> -->
+</script> 
 @endsection
