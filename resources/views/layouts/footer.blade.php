@@ -31,9 +31,9 @@
                     <h5 class="text-secondary text-uppercase mb-4">Categories </h5>
                     <div class="d-flex flex-column justify-content-start">
                     @if(isset($categories) && !empty($categories))
-                    @for($i = 0; $i < min(6, count($categories)); $i++)
+                    @foreach($categories as $c)
                         <a class="text-secondary mb-2" href="{{route('products',['category' => $c->name])}}"><i class="fa fa-angle-right mr-2"></i>{{$c->name}}</a>
-                        @endfor
+                        @endforeach
                         @endif
                     </div>
                 </div>

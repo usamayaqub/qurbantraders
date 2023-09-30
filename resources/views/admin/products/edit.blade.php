@@ -91,7 +91,7 @@
                 <div class="form-group col-sm-7 mb-2">
                     <label for="">Price<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="price" @isset($type)value="{{$type->price}}" @endisset placeholder="Enter price">
+                        <input type="number" required class="form-control" name="price" @isset($type)value="{{$type->price}}" @endisset placeholder="Enter price">
                     </div>
                     @error('price')
                     <span class="invalid-feedback mt-0" @error('price')style="display: block" @enderror role="alert">
@@ -103,7 +103,7 @@
                 <div class="form-group col-sm-7 mb-2">
                     <label for="">Discounted Price<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="discounted_price" @isset($type)value="{{$type->discounted_price}}" @endisset placeholder="Enter discounted price">
+                        <input type="number" required class="form-control" name="discounted_price" @isset($type)value="{{$type->discounted_price}}" @endisset placeholder="Enter discounted price">
                     </div>
                     @error('discounted_price')
                     <span class="invalid-feedback mt-0" @error('discounted_price')style="display: block" @enderror role="alert">
