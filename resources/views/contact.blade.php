@@ -100,18 +100,19 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
     </div>
 </div>
 
-{{-- <div class="loader-container">
+<div class="loader-container d-none">
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
-</div> --}}
+</div>
 <!-- Contact End -->
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         var recaptcha = document.querySelector(".g-recaptcha");
+        var loaderContainer = document.querySelector(".loader-container");
 
         var submitButton = document.querySelector("#submit-button");
 
@@ -125,7 +126,8 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
                 recaptchaError.textContent = "Please complete the reCAPTCHA.";
             } else {
                 // If reCAPTCHA is checked, submit the form
-                document.querySelector("#contact-form").submit();
+                loaderContainer.classList.remove("d-none");
+                document.querySelector("#contactForm").submit();
             }
         });
     });
