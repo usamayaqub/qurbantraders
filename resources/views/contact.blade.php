@@ -15,7 +15,7 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30">
-                <a class="breadcrumb-item text-dark" href="#">Home</a>
+                <a class="breadcrumb-item text-dark" href="{{route('get-home')}}">Home</a>
                 <span class="breadcrumb-item active">Contact</span>
             </nav>
         </div>
@@ -98,6 +98,13 @@ We are here to help with M.S, S.S, pipe fittings, valves, and more.')
             </div>
         </div>
     </div>
+</div>
+
+<div class="loader-container">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
 </div>
 <!-- Contact End -->
 

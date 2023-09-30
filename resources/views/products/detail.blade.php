@@ -117,7 +117,7 @@
                             <div class="form-group mb-0">
                                 <button type="submit" value="Send" class="btn btn-primary px-3">Send Inquiry</button>
                             </div>
-                        </form>
+                        </form> 
                     </div>
                 </div>
             </div>
@@ -125,7 +125,12 @@
     </div>
 </div>
 <!-- Shop Detail End -->
-
+<div class="loader-container">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</div>
 
 <!-- Products Start -->
 <div class="container-fluid py-5">
