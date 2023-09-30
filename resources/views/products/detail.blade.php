@@ -78,7 +78,7 @@
                 <div class="tab-content">
                     <div class="col-md-12">
                         <h4 class="mb-4">Make a enquiry of This Product</h4>
-                        <form action="{{route('contact.send')}}" method="POST">
+                        <form action="{{route('contact.send')}}" method="POST" id="query-form">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Your Name *</label>
@@ -131,7 +131,7 @@
     </div>
 </div>
 <!-- Shop Detail End -->
-<div class="loader-container">
+<div class="loader-container d-none">
     <div class="dot"></div>
     <div class="dot"></div>
     <div class="dot"></div>
@@ -184,6 +184,7 @@
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         var recaptcha = document.querySelector(".g-recaptcha");
+        var loaderContainer = document.querySelector(".loader-container");
 
         var submitButton = document.querySelector("#submit-button");
 
@@ -196,8 +197,9 @@
                 var recaptchaError = document.querySelector(".recaptcha-error");
                 recaptchaError.textContent = "Please complete the reCAPTCHA.";
             } else {
+                loaderContainer.classList.remove("d-none");
                 // If reCAPTCHA is checked, submit the form
-                document.querySelector("#contact-form").submit();
+                document.querySelector("#query-form").submit();
             }
         });
     });
