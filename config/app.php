@@ -186,8 +186,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-    'Image' => Intervention\Image\Facades\Image::class,
-    'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

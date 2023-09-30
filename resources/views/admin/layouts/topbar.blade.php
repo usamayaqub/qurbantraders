@@ -3,8 +3,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <img src="{{ URL("assets/images/qurban-logo.jpg") }}" />
- 
+                <img src="{{ URL("assets/images/qurban-logo.jpg") }}" / style="height: 91%; object-fit: contain; width: 100%;">
             </div>
     </div>
 

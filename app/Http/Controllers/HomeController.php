@@ -55,8 +55,8 @@ class HomeController extends Controller
             });
         }
 
-        if ($request->has('cat_id') && !empty($request->category)) {
-           $baseQuery->WwereHas('category', function ($query) use ($request) {
+        if ($request->has('category') && !empty($request->category)) {
+           $baseQuery->whereHas('category', function ($query) use ($request) {
             $query->where('name',urldecode($request->category));
         });
         }

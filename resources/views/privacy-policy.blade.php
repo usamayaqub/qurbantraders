@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'Contact Us')
-@section('meta_description', '')
+@section('meta_title', 'Your Privacy Matters to Us – Our Privacy Policy | Qurban Traders')
+@section('meta_description', 'We respect your privacy. Learn how we handle your data and protect your information. Read our comprehensive privacy policy.')
 @section('canonical',"")
 
 @section('script_css')

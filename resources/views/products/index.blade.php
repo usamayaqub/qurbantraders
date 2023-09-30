@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'About')
-@section('meta_description', '')
+@section('meta_title', 'Explore Our Extensive Range of Industrial Products | Qurban Traders')
+@section('meta_description', 'Browse our catalog of high-quality imported and stocked products, including M.S, S.S, pipe fittings, valves, fire fighting equipment, LPG plant fittings, and grooved fittings.')
 @section('canonical',"")
 
 @section('script_css')
@@ -15,9 +15,8 @@
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30">
-                <a class="breadcrumb-item text-dark" href="#">Home</a>
-                <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                <span class="breadcrumb-item active">Shop List</span>
+                <a class="breadcrumb-item text-dark" href="{{route('get-home')}}">Home</a>
+                <span class="breadcrumb-item active">All Products</span>
             </nav>
         </div>
     </div>
@@ -44,7 +43,7 @@
                             <a class="h6 text-decoration-none text-truncate stretched-link" href="{{route('products-detail',['slug' => $p->slug])}}">{{$p->name}}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                             @if(!empty($p->discounted_price))
-                            <h5>Rs.{{$p->discounted_price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$p->price}}</del></h6>
+                            <h5>Rs.{{$p->price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$p->discounted_price}}</del></h6>
                             @else
                             <h5>Rs.{{$p->price}}</h5>
                             @endif
@@ -62,29 +61,31 @@
                 </div>
                 @endforeach
                 @else
-                <h5>No products found</h5>
+                <div class="col-lg-12">
+                    <h5 class="text-center pt-5">No Products Found</h5>
+                </div>
                 @endif
                 <div class="col-12">
-    <nav>
-        <ul class="pagination justify-content-center">
-            @if ($products->lastPage() > 1)
-                <li class="page-item {{ $products->onFirstPage() ? 'disabled' : '' }}">
-                    <a class="page-link" href="{{ $products->previousPageUrl() }}">Previous</a>
-                </li>
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            @if ($products->lastPage() > 1)
+                                <li class="page-item {{ $products->onFirstPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $products->previousPageUrl() }}">Previous</a>
+                                </li>
 
-                @for ($i = 1; $i <= $products->lastPage(); $i++)
-                    <li class="page-item {{ $i == $products->currentPage() ? 'active' : '' }}">
-                        <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
-                    </li>
-                @endfor
+                                @for ($i = 1; $i <= $products->lastPage(); $i++)
+                                    <li class="page-item {{ $i == $products->currentPage() ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
 
-                <li class="page-item {{ $products->hasMorePages() ? '' : 'disabled' }}">
-                    <a class="page-link" href="{{ $products->nextPageUrl() }}">Next</a>
-                </li>
-            @endif
-        </ul>
-    </nav>
-        </div>
+                                <li class="page-item {{ $products->hasMorePages() ? '' : 'disabled' }}">
+                                    <a class="page-link" href="{{ $products->nextPageUrl() }}">Next</a>
+                                </li>
+                            @endif
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
