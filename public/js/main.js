@@ -64,7 +64,7 @@
     $('.related-carousel').owlCarousel({
         loop: true,
         margin: 29,
-        nav: false,
+        nav: true,
         autoplay: true,
         smartSpeed: 1000,
         responsive: {
@@ -142,3 +142,12 @@
     }
     document.addEventListener("DOMContentLoaded", loadbar, false);
 })();
+
+
+new Drift(document.querySelector(".drift-demo-trigger"), {
+    paneContainer: document.querySelector(".details"),
+    inlinePane: 769,
+    inlineOffsetY: -85,
+    containInline: true,
+    hoverBoundingBox: true,
+});

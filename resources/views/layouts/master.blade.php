@@ -57,6 +57,10 @@ $categories = [];
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://awik.io/demo/webshop-zoom/drift-basic.min.css">
+
     <!-- Libraries Stylesheet -->
     <link href="{{asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
@@ -84,6 +88,7 @@ $categories = [];
     <script src="{{asset('lib/easing/easing.min.js')}}"></script>
     <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
     <!-- Contact Javascript File -->
+    <script src="https://awik.io/demo/webshop-zoom/Drift.min.js"></script>
     <script src="{{asset('mail/jqBootstrapValidation.min.js')}}"></script>
     <!-- Template Javascript -->
     <script src="{{asset('js/main.js')}}"></script>

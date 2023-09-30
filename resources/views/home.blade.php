@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', '')
-@section('meta_description', '')
+@section('meta_title', 'Quality Imported and Stocked M.S, S.S, Pipe Fittings, Valves, and More | Qurban Traders')
+@section('meta_description', 'Explore a wide range of imported and stocked M.S, S.S, pipe fittings, valves, fire fighting equipment, LPG plant fittings, and grooved fittings. We deliver quality solutions for your industrial needs.')
 @section('canonical',"")
 
 @section('script_css')
@@ -132,11 +132,12 @@
 
 <!-- Categories Start -->
 <div class="container-fluid pt-5">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
-            class="bg-secondary pr-3">Categories</span></h2>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+        <span class="bg-secondary pr-3">Categories</span>
+    </h2>
     <div class="row px-xl-5 pb-3">
         @if(isset($categories) && !empty($categories))
-                    @foreach($categories as $c)
+        @foreach($categories as $c)
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
             <a class="text-decoration-none" href="{{route('products',['category' => $c->name])}}">
                 <div class="cat-item img-zoom d-flex align-items-center mb-4">

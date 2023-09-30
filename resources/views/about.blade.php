@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('meta_title', 'About')
-@section('meta_description', '')
+@section('meta_title', 'Learn About Our Commitment to Quality and Service | Qurban Traders')
+@section('meta_description', 'Discover our companys story, values, and dedication to providing top-notch M.S, S.S, and other industrial fittings. Get to know the team behind our success.')
 @section('canonical',"")
 
 @section('script_css')
@@ -59,60 +59,5 @@
     </div>
 </section>
 
-<div class="container-fluid pt-5 pb-3">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
-        <span class="bg-secondary pr-3">
-            Our Team Members
-        </span>
-    </h2>
-    <div class="row px-xl-5">
-        <div class="owl-carousel related-carousel">
-            <div class="">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{asset('img/p1.webp')}}" alt="">
-                    </div>
-                    <div class="text-left py-4 px-3">
-                        <p class="h6 text-decoration-none text-truncate" href="">Muhammad Danish</p>
-                        <h5>Manager</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{asset('img/p1.webp')}}" alt="">
-                    </div>
-                    <div class="text-left py-4 px-3">
-                        <p class="h6 text-decoration-none text-truncate" href="">Muhammad Danish</p>
-                        <h5>Manager</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{asset('img/p1.webp')}}" alt="">
-                    </div>
-                    <div class="text-left py-4 px-3">
-                        <p class="h6 text-decoration-none text-truncate" href="">Muhammad Danish</p>
-                        <h5>Manager</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="{{asset('img/p1.webp')}}" alt="">
-                    </div>
-                    <div class="text-left py-4 px-3">
-                        <p class="h6 text-decoration-none text-truncate" href="">Muhammad Danish</p>
-                        <h5>Manager</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @include('comman.why-choose-us')
 @endsection

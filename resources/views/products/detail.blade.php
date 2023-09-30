@@ -33,15 +33,19 @@
                     <div class="carousel-item active">
                     @if(!empty($product->images()))
                     <div class="single-product-image">
-                        <img class="img-fluid w-100" src="{{$product->images()->first()->url}}" alt="{{$product->name}}">
+                        {{-- <img class="img-fluid w-100" src="{{$product->images()->first()->url}}" alt="{{$product->name}}"> --}}
+                        <img class="drift-demo-trigger" data-zoom="{{$product->images()->first()->url}}" src="{{$product->images()->first()->url}}">
                     </div>
                     @endif
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-lg-7 h-auto mb-30">
+            <div class="column">
+                <div class="details">  
+                </div>
+            </div>
             <div class="h-100 bg-light p-30">
                 <h3>{{$product->name}}</h3>
                 <div class="d-flex mb-3">
@@ -54,7 +58,13 @@
                     </div>
                     <small class="pt-1">(99 Reviews)</small>
                 </div>
-                <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
+                <div class="d-flex align-items-center">
+                    @if(!empty($product->discounted_price))
+                    <h5>Rs.{{$product->price}}</h5><h6 class="text-muted ml-2"><del>Rs.{{$product->discounted_price}}</del></h6>
+                    @else
+                    <h5 class="font-weight-semi-bold mb-4">Rs.{{$product->price}}</h5>
+                    @endif
+                </div>
                 <p class="mb-4">{{$product->short_description}}</p>
                 <h4 class="mb-3">Product Description</h4>
                 <p>{!! $product->description !!}
